@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load custom_filters %}
+
+<h2>Banners</h2>
+
+{% if user.is_superuser %}
+<a href="{% url 'banner_create' %}">Criar Novo Banner</a>
+{% endif %}
+<br>
+
+{% if banners %}
+{% for banner in banners %}
+<div class="box_post">
+
+
+    <a href="{{ banner.link }}" target="_blank">
+        <img src="{{ banner.image.url }}" alt="Banner">
+    </a>
+    <p>{{ banner.description }}</p>
+    {% if request.user|can_create %}
+    <a href="{% url 'banner_update' banner.id %}">Editar</a>
+
+    <form action="{% url 'banner_delete' banner.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Excluir</button>
+    </form>
+    {% endif %}
+</div>
+{% endfor %}
+{% else %}
+<p>Nenhum banner encontrado.</p>
+{% endif %}
+
+<h2>Links</h2>
+
+{% if user.is_superuser %}
+<a href="{% url 'link_create' %}">Criar Novo Link</a>
+{% endif %}
+
+<br>
+
+{% if links %}
+<ul>
+    {% for link in links %}
+    <div class="box_post">
+
+
+        <li>
+            <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
+            <p>{{ link.description }}</p>
+            {% if request.user|can_create %}
+            <a href="{% url 'link_update' link.id %}">Editar</a> |
+            <form action="{% url 'link_delete' link.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Excluir</button>
+            </form>
+            {% endif %}
+        </li>
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Nenhum link encontrado.</p>
+{% endif %}
+{% endblock %}

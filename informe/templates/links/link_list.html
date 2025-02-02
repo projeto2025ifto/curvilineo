@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Lista de Links</h1>
+    <a href="{% url 'link_create' %}">Adicionar Novo Link</a>
+    <ul>
+        {% for link in links %}
+            <li>
+                <a href="{{ link.url }}" target="_blank">{{ link.title }}</a> 
+                <p>{{ link.description }}</p>
+                <a href="{% url 'link_update' link.id %}">[Editar]</a>
+                <a href="{% url 'link_delete' link.id %}">[Excluir]</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

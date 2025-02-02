@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+
+<title>Tópicos - {{ categoria.name }}</title>
+
+<h1>Tópicos da categoria: {{ categoria.name }}</h1>
+
+<!-- Exibe a descrição da subcategoria -->
+<p><strong>Descrição:</strong> {{ categoria.description }}</p>
+
+
+<details>
+    <summary>Tags</summary>
+    {% if request.user|can_create %}
+    <a href="{% url 'forum:create_tag' %}">Criar Nova Tag</a>
+    {% endif %}
+    <ul>
+        {% for tag in tags %}
+
+
+        <li>
+            <a href="{% url 'forum:topicos_by_tag' tag.id %}">{{ tag.name }}</a>
+            <!-- Exibe o número de tópicos associados à tag -->
+            ({{ tag.topicos.count }})
+            {% csrf_token %}
+
+        </li>
+
+        {% endfor %}
+    </ul>
+
+</details>
+
+
+<!-- Link para criar um novo tópico, visível apenas para usuários autenticados -->
+{% if user.is_authenticated %}
+<a href="{% url 'forum:create_topico' categoria.id %}">Criar novo tópico</a>
+{% else %}
+<p>Você precisa estar <a href="#">logado</a> para criar um tópico.</p>
+{% endif %}
+
+<ul>
+    {% for topico in topicos %}
+    <div class="box_post">
+
+        <li>
+            <a href="{% url 'forum:topico_detail' topico.id %}">{{ topico.title }}</a>
+            <p>{{ topico.created_at|timesince }}</p>
+
+        </li>
+    </div>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'forum:categoria_list' categoria.sala.id %}">Voltar</a>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Banners</h2>
+<a href="{% url 'banner_create' %}">Criar Novo Banner</a>
+<ul>
+    {% for banner in banners %}
+        <li>
+            <img src="{{ banner.image.url }}" width="200">
+            <a href="{{ banner.link }}">{{ banner.link }}</a>
+            <a href="{% url 'banner_update' banner.id %}">Editar</a>
+            <a href="{% url 'banner_delete' banner.id %}">Excluir</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
