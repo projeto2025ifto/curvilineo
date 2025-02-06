@@ -23,9 +23,9 @@
 
             <!-- Links de edição e exclusão visíveis apenas para administradores -->
             {% if request.user|can_create %}
-            <a href="{% url 'forum:edit_sala' sala.id %}"><button>Editar</button></a>
+            <a href="{% url 'forum:edit_sala' sala.id %}"><button class="btn-mini">Editar</button></a>
             <a href="{% url 'forum:delete_sala' sala.id %}">
-                <button onclick="return confirm('Tem certeza?');">Excluir</button>
+                <button onclick="return confirm('Tem certeza?');" class="btn-mini">Excluir</button>
             </a>
             {% endif %}
         </li>
@@ -39,7 +39,7 @@
 <p>Nenhuma sala cadastrada. ^_^</p>
 {% endif %}
 {% else %}
-<p><a href="#">LOGIN necessário</a></p>
+<p><a href="{% url 'contas:login' %}"">LOGIN necessário</a></p>
 {% endif %}
 
 {% endblock %}

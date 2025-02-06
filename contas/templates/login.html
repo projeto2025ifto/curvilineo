@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="box_post">
+<div >
     <div class="modal-box">
-        <h2>Login</h2>
         <div class="modal-content">
+            <img src="{% static 'img/wallpapel.jpg' %}">
+            <h2>Login</h2>
             <form method="post" action="{% url 'contas:login' %}">
                 {% csrf_token %}
                 
@@ -32,8 +33,8 @@
                     {% endif %}
                 </div>
 
-                <button type="submit">Logar</button>
-                <button><a href="{% url 'contas:register' %}">Criar conta</a></button>
+                <button class="btn-mini" type="submit">Logar</button>
+                <button class="btn-mini"><a href="{% url 'contas:register' %}">Criar conta</a></button>
                 <a href="{% url 'contas:password_reset' %}">Redefinir senha</a>
             </form>
 

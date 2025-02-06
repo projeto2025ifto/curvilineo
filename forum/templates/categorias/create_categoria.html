@@ -5,7 +5,7 @@
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Salvar</button>
+    <button type="submit" class="btn-mini">Salvar</button>
 </form>
 <a href="{% url 'forum:categoria_list' sala.id %}">Voltar</a>
 {% endblock %}

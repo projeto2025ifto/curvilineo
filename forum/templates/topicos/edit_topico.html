@@ -7,7 +7,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Salvar alterações</button>
+    <button type="submit" class="btn-mini">Salvar alterações</button>
 </form>
 <a href="{% url 'forum:topico_list' topico.categoria.id %}">Voltar</a>
 

@@ -50,7 +50,7 @@
             <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
             <p>{{ link.description }}</p>
             {% if request.user|can_create %}
-            <a href="{% url 'link_update' link.id %}">Editar</a> |
+            <a href="{% url 'link_update' link.id %}">Editar</a>
             <form action="{% url 'link_delete' link.id %}" method="POST">
                 {% csrf_token %}
                 <button type="submit">Excluir</button>

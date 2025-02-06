@@ -8,7 +8,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Criar Tópico</button>
+    <button type="submit" class="btn-mini">Criar Tópico</button>
 </form>
 
 <a href="{% url 'forum:topico_list' categoria.id %}">Voltar</a>
