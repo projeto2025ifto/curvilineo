@@ -8,6 +8,7 @@ urlpatterns = [
     # URLs para Links
     path('link/list/', views.link_list, name='link_list'),
     path('link/create/', views.link_create, name='link_create'),
+    path('link/<int:link_id>/', views.link_detail, name='link_detail'),
     path('link/<int:link_id>/edit/', views.link_update, name='link_update'),
     path('link/<int:link_id>/delete/', views.link_delete, name='link_delete'),
     

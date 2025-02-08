@@ -42,13 +42,13 @@
 
 {% if links %}
 <ul>
-    {% for link in links %}
     <div class="box_post">
+        {% for link in links %}
 
 
         <li>
-            <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
-            <p>{{ link.description }}</p>
+            <a href="{{ link.url  }}">{{ link.title }}</a>
+            <!--<p>{{ link.description }}</p>-->
             {% if request.user|can_create %}
             <a href="{% url 'link_update' link.id %}">Editar</a>
             <form action="{% url 'link_delete' link.id %}" method="POST">
@@ -57,8 +57,8 @@
             </form>
             {% endif %}
         </li>
+        {% endfor %}
     </div>
-    {% endfor %}
 </ul>
 {% else %}
 <p>Nenhum link encontrado.</p>

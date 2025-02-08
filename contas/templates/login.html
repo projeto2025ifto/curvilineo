@@ -4,7 +4,7 @@
 <div >
     <div class="modal-box">
         <div class="modal-content">
-            <img src="{% static 'img/wallpapel.jpg' %}">
+            <img src="{% static 'img/Curvilineo.jpg' %}">
             <h2>Login</h2>
             <form method="post" action="{% url 'contas:login' %}">
                 {% csrf_token %}
@@ -35,7 +35,6 @@
 
                 <button class="btn-mini" type="submit">Logar</button>
                 <button class="btn-mini"><a href="{% url 'contas:register' %}">Criar conta</a></button>
-                <a href="{% url 'contas:password_reset' %}">Redefinir senha</a>
             </form>
 
             {% for message in messages %}

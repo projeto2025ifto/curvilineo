@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 import os
-
 class Link(models.Model):
     title = models.CharField(max_length=200)
     url = models.URLField()
@@ -10,7 +10,9 @@ class Link(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+    def get_absolute_url(self):
+        return reverse('link_detail', kwargs={'pk': self.pk})
 #------------------------------------------------------------
 
 class Banner(models.Model):

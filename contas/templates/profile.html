@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="profile-container">
-    <h2>Perfil de {{ user.username }}</h2>
+    <h2>Perfil</h2>
 
     <div class="profile-info">
 
@@ -44,6 +44,7 @@
 
     {% if user.is_authenticated %}
     <a href="{% url 'contas:edit_profile' %}" class="btn">Editar Perfil</a><br>
+    <a href="{% url 'contas:password_reset' %}">Redefinir senha</a><br>
     <a href="{% url 'contas:delete_account' %}" class="btn">Deletar Perfil</a><br>
     <a href="{% url 'contas:logout' %}" class="btn">Sair</a><br>
     {% else %}

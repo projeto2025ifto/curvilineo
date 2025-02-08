@@ -25,6 +25,10 @@ def link_create(request):
         form = LinkForm()
     return render(request, 'links/link_form.html', {'form': form})
 
+def link_detail(request, link_id):
+    link = get_object_or_404(Link, id=link_id)
+    return render(request, 'link_detail.html', {'link': link})
+
 def link_update(request, link_id):
     link = get_object_or_404(Link, id=link_id)
     if request.method == "POST":

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ link.title }}</h1>
+  <p><strong>Descrição:</strong> {{ link.description }}</p>
+  <p><strong>Data de criação:</strong> {{ link.created_at }}</p>
+  <p><a href="{{ link.url }}" target="_blank">Acessar link</a></p>
+
+  <a href="{% url 'link_list' %}">Voltar para a lista de links</a>
+{% endblock %}

@@ -4,7 +4,7 @@
 <!-- Overlay para o fundo escuro "&times;" -->
 <div class="overlay" id="overlay">
     <div class="modal-box">
-        <button class="close-btn"><a href="{% url 'contas:login' %}">↩</a></button>
+        <img src="{% static 'img/Curvilineo.jpg' %}">
         <h2>Cadastro</h2>
         <div class="modal-content">
             <form method="POST" enctype="multipart/form-data">
@@ -71,6 +71,7 @@
 
                 <button class="btn-mini" type="submit" class="btn">Cadastrar</button>
             </form>
+            <a href="{% url 'contas:login' %}">Voltar</a>
 
             {% if messages %}
                 <div class="messages">

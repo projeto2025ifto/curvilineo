@@ -56,7 +56,7 @@ body {
 }
 
 #sidebar .logo {
-  font-weight: 600;
+  font-weight: 400;
   padding: 1em;
   border: 1px solid var(--line-clr);
   border-radius: .2em;
@@ -71,7 +71,7 @@ body {
   color: var(--accent-clr);
 }
 
-#sidebar a, #sidebar .dropdown-btn, #sidebar .logo {
+#sidebar a, #sidebar .logo {
   border-radius: .5em;
   padding: .85em;
   text-decoration: none;
@@ -236,7 +236,7 @@ a:focus {
   }
 
   #sidebar {
-    height: 60px;
+    height: 55px;
     width: 100%;
     border-right: none;
     border-top: 1px solid var(--line-clr);
